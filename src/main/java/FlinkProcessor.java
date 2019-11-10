@@ -20,7 +20,6 @@ public class FlinkProcessor {
         properties.setProperty("bootstrap.servers", "localhost:9092");
         properties.setProperty("zookeeper.connect", "localhost:2181");
         properties.setProperty("group.id", "test");
-//        properties.setProperty("auto.offset.reset", "earliest");       // Always read topic from start
 
         DataStream<String> stream = env
                 .addSource(new FlinkKafkaConsumer<>("person", new SimpleStringSchema(), properties));
